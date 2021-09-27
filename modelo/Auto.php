@@ -100,7 +100,7 @@ class Auto{
         $resp = false;
         $db = new dataBase();
         $sql="UPDATE auto SET Marca ='".$this->getMarca()."', Modelo =".$this->getModelo().", DniDuenio = '".$this->getObjPersona()->getNroDni()."'  WHERE Patente= '".$this->getPatente()."'";
-        echo $sql;
+       // echo $sql;
         if ($db->Iniciar()) {
             if ($db->Ejecutar($sql)) {
                 $resp = true;

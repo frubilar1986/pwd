@@ -28,8 +28,9 @@ include_once "../../estructHtml/cabecera.php";
                        // $objCtrolAuto = new ctrol_tp4_abmAuto();
                         $objctrolPers = new ctrol_tp4_abmPersona();
                         $colPersonas = $objctrolPers->buscar($where);
-                        $persona = $colPersonas[0];
-                        if( $persona != null){
+                        //$persona = $colPersonas[0];
+                        if( count($colPersonas) != 0){
+                            $persona = $colPersonas[0];
                         ?>
                         <form action="actualizarDatosPersona.php" method="post" class="" >
                         <div>

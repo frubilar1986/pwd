@@ -23,13 +23,13 @@ include_once "../../estructHtml/cabecera.php";
                         <?php
                         $resp = false;
                         $datosForm = datos_submitidos();
-                        print_r($datosForm);
+                        //print_r($datosForm);
                         $where['NroDni'] = $datosForm['nroDni'];
                        // $objCtrolAuto = new ctrol_tp4_abmAuto();
                         $objctrolPers = new ctrol_tp4_abmPersona();
                         $colPersonas = $objctrolPers->buscar($where);
                         $persona = $colPersonas[0];
-                     
+                        if( $persona != null){
                         ?>
                         <form action="actualizarDatosPersona.php" method="post" class="" >
                         <div>
@@ -60,9 +60,11 @@ include_once "../../estructHtml/cabecera.php";
                             <div>
                                 <button class="btn btn-primary" type="submit">Enviar</button>
                             </div>
-                        </form>
+                        </form><?php }else{
+                            echo "<p class='h2 alert alert-danger'> No se encuentra la persona en la Base de datos </p>";
+                        }
 
-                        <?php
+                        
 
                         ?>
 

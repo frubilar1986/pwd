@@ -36,16 +36,22 @@ include_once "../../estructHtml/cabecera.php";
                              if (count($arregloPersonas) == 1){
                                     $objAuto = $arregloAutos[0];
                                     $objPersona = $arregloPersonas[0];
-                                //    $resp =  $objCtrolAuto->cambiarDuenio($objAuto,$objPersona);
-                                //    if($resp){
-                                //        $objAuto->modificar();
-                                //    };
-                                    $arrAuto = ['patente'=> $objAuto->getPatente(),
-                                                'marca' => $objAuto->getMarca(),
-                                                'modelo'=> $objAuto->getModelo(),
-                                                'dniDuenio'=>$objPersona->getNroDni()
-                                            ];
-                                  $resp =  $objCtrolAuto->modificacion($arrAuto);
+                                    if($objAuto->getObjPersona()->getNroDni() != $objPersona->getNroDni()){
+
+                                        
+                                             $arrAuto = ['patente'=> $objAuto->getPatente(),
+                                                         'marca' => $objAuto->getMarca(),
+                                                         'modelo'=> $objAuto->getModelo(),
+                                                         'dniDuenio'=>$objPersona->getNroDni()
+                                                     ];
+                                           $resp =  $objCtrolAuto->modificacion($arrAuto);
+                                    }
+//                                     $arrAuto = ['patente'=> $objAuto->getPatente(),
+//                                                 'marca' => $objAuto->getMarca(),
+//                                                 'modelo'=> $objAuto->getModelo(),
+//                                                 'dniDuenio'=>$objPersona->getNroDni()
+//                                             ];
+//                                   $resp =  $objCtrolAuto->modificacion($arrAuto);
                              }
 
                             // $arrData2['nroDni'] = $arregloAutos[0]->getObjPersona()->getNroDni(); // ctrol si esxiste persona
